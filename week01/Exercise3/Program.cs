@@ -7,7 +7,7 @@ class Program
         Console.WriteLine("Hello World! This is the Exercise3 Project.");
 
         Random randomGenerator = new Random();
-        int magicNumber = randomGenerator.Next(1, 100);
+        int magicNumber = randomGenerator.Next(1, 101);
 
         Console.WriteLine("Guess the magic number! (between 1-100) ");
         Console.Write("What is your guess? ");
