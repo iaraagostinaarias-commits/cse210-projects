@@ -1,0 +1,30 @@
+WHAT IS ABSTRACTION AND WHY IS IT IMPORTANT?
+
+Abstraction is the way we can make complex things simpler, by breaking work down into smaller and more specific parts, each one with a clear purpose to be fufilled when needed. For example, in C# we have a class with its method that allows us to display messages in the screen to the user, this class is Console and on of its methosd is WriteLine() - Console.WriteLine(); -
+The are many other classes that we can use from C#, but we can also create our own classes and tell them what we want them to do, we do so by creating variables or attributes, and methods or functions into the class. Each class need to be in their own .cs file, so that later we can call them in our main program when needed.
+One of the benefits of creating classes is that in our main program we will write the core code that tells the program how to work in less lines of code, because we already wrote a block of code into each class, and we don't need to write all that code again to do something we need, we will just call the class and they will do their task.
+Something importan about classes, is that we need to inicialize or instantiate them in our main code, that way we will have access to each variable and method into that class. 
+Here is a snippet of code of a program created to help people to write in their Journal. A little bit of context to better understand the piece of code. We created three classes aside of the main class or main program.
+- The Entry class, created to store and display the user input. In this class we have variable to store the date from the computer, a variable to store a prompt or question that was provided to the user, and a variable to store the response from the user to that question (or the user input). This class also has a method that takes those three variables and displays them to the console in a nice format.
+
+- The PromptGenerator class, crated to contain a list of questions and to display them one by one for the user to respond. As I mentioned we have a list variable where we store the questions, and we have a method that will pick one random question from that list and return it to the program to display in the console.
+
+- The Journal class, created to help us save each entry from the entry class into a file, so that when the user wants they can save and load their journal to read.
+
+    if (userChoice == 1)
+    {
+        Entry newEntry = new Entry(); // We instantiate the Entry class to have access to their variables/methods.
+
+        string prompt = newPrompt.GetRandomPrompt(); // We called the GetRandomPrompt method to pick a random question for the user
+        newEntry._promtText = prompt; // We accesed the _promtText variable from the PromptGenerator class to store the question picked in the previous line of code
+
+        newEntry._date = dateToString; // We called the _date variable to store the date took from the computer
+
+        Console.WriteLine(prompt);
+        Console.Write("> ");
+        newEntry._entryText = Console.ReadLine(); // We called the _entryText variable from the Entry class to take and store the user input (response to the random question given)
+
+        newJournal.AddEntry(newEntry); // We called the method AddEntry from the Journal class to store the whole user entry (date, prompt, input) so that later if the user wants can store it into a file.
+    }
+
+I think this is a very good example of how the concept of abstraction works because in just a few lines of code we were able to acomplish one of the main purposes of this program.
