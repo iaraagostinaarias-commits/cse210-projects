@@ -1,0 +1,22 @@
+WHAT IS ENCAPSULATION AND WHY IS IT IMPORTANT?
+
+In programming, encapsulation refers to the principle of "enclosing" parts of a program to keep its data protected. This is not about securing sensitive information, such as a user's private data, but rather about restricting access to specific parts of the program from other components that do not require direct interaction with how that data is stored. This principle ensures that each program component has access only to the information it actually needs. In the context of C# classes, this means that each class manages its own data, while other classes remain unaware of the internal details of how that management occurs. This is particularly useful when something fails in the program, the error can be isolated within a specific, encapsulated area of ​​the code, rather than being scattered throughout the entire codebase, which makes it significantly easier to locate and fix. When defining classes, we can apply this principle by making certain elements as "private", meaning they are accessible only to the class itself. As a general rule, all member variables of a class should be private, preventing other classes from accessing them or the data they contain; however, classes can still interact with one another, but only through the methods that each class exposes.
+
+Here is an example of code applying this principle: -We have a Reference class that we need to store some values or informacion in their variables, so we do the following:
+
+// The constructor from the Scripture class will receive some data (reference and verseText)
+    public Scripture(Reference reference, string verseText)
+    {
+        _reference = reference; // The constructor of this class is interacting with the constructor of Reference class
+    }
+
+// This is how the constructor of the Reference class internaly stores the data given to it
+    public Reference(string book, int chapter, int verse)
+    {
+        // each variable these variables is private, so to assign them a value the other class had to call this constructor, pass it the information needed, and this constructor has the responsability to store that informacion in these varibles.
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+    }
+
+This is a simple example of how we can apply encapsulation in our code. If any time we want to change the way the Reference class stores its data, we would only need to change this class, and we would not need to worry of how this would affect other parts of the program because they don't have access to the way this class stores their information, they only interacted with the method/s of this class.
